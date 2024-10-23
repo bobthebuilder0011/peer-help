@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Meeting</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateRegistrationNumber() {
+            const regNo = document.getElementById('registration').value;
+            if (!regNo.startsWith('RA')) {
+                alert("Registration number must begin with 'RA'.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Schedule Meeting</h1>
+        <nav>
+          <ul>
+              <li><a href="index.html" class="nav-button">Home</a></li>
+              <li><a href="upload.html" class="nav-button">Upload Video</a></li>
+              <li><a href="notes.html" class="nav-button">Upload Notes</a></li>
+              <li><a href="doubts.html" class="nav-button">Ask Your Doubts</a></li>
+              <li><a href="profile.html" class="nav-button">Profile</a></li>
+              <li><a href="available-doubts.html" class="nav-button">available doubts</a></li>
+          </ul>
+      </nav>
+      
+    </header>
+    <main>
+        <form action="#" method="post" onsubmit="return validateRegistrationNumber();">
+            <label for="registration">Registration Number:</label>
+            <input type="text" id="registration" name="registration" required pattern="^RA.*">
+            
+            <label for="meeting-date">Meeting Date:</label>
+            <input type="date" id="meeting-date" name="meeting-date" required>
+            
+            <label for="meeting-time">Meeting Time:</label>
+            <input type="time" id="meeting-time" name="meeting-time" required>
+            
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" rows="4"></textarea>
+            
+            <button type="submit">Schedule Meeting</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 SRM IST ACADEMIC HELPCENTER Inc.</p>
+    </footer>
+</body>
+</html>

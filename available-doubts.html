@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="nav-button">Home</a></li>
+            <li><a href="upload.html" class="nav-button">Upload Video</a></li>
+            <li><a href="notes.html" class="nav-button">Upload Notes</a></li>
+            <li><a href="doubts.html" class="nav-button">Ask Your Doubts</a></li>
+            <li><a href="profile.html" class="nav-button">Profile</a></li>
+            <li><a href="available-doubts.html" class="nav-button">available doubts</a></li>
+        </ul>
+    </nav>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"> <!-- Assuming same CSS as other pages -->
+  <title>Available Doubts</title>
+</head>
+<body>
+
+  <header>
+    <h1>Available Doubts</h1>
+  </header>
+
+  <!-- Search Bar Container -->
+  <div class="search-bar-container">
+    <input type="text" id="search-bar" placeholder="Search doubts..." onkeyup="filterDoubts()" class="search-bar">
+  </div>
+
+  <!-- Section to Load Doubts -->
+  <section class="doubt-list-section">
+    <h2 class="section-heading">Recent Doubts</h2>
+    <ul class="doubt-list" id="doubt-list">
+      <!-- Doubts will be dynamically loaded here -->
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 ACADEMIC HELPCENTER</p>
+  </footer>
+
+  <script>
+    // Function to fetch doubts from doubts.html and load them
+    function loadDoubts() {
+      fetch('doubts.html')
+        .then(response => response.text())
+        .then(data => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, 'text/html');
+          const doubts = doc.querySelectorAll('.doubt-item');
+          
+          const doubtList = document.getElementById('doubt-list');
+          doubts.forEach(doubt => {
+            // Clone and append each doubt to the current page
+            const newDoubt = doubt.cloneNode(true);
+            doubtList.appendChild(newDoubt);
+          });
+        })
+        .catch(error => console.error('Error loading doubts:', error));
+    }
+
+    // Search bar filter function to filter doubts
+    function filterDoubts() {
+      const searchInput = document.getElementById('search-bar').value.toLowerCase();
+      const doubtItems = document.querySelectorAll('.doubt-item');
+
+      doubtItems.forEach(item => {
+        const doubtText = item.innerText.toLowerCase();
+        if (doubtText.includes(searchInput)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Load doubts when the page is loaded
+    window.onload = loadDoubts;
+  </script>
+
+</body>
+</html>

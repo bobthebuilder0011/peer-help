@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Notes</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <script>
+        function toggleClassInput() {
+            const isTeacher = document.getElementById("roleTeacher").checked;
+            const classInput = document.getElementById("classInput");
+            if (isTeacher) {
+                classInput.style.display = "none"; // Hide class input for teachers
+            } else {
+                classInput.style.display = "block"; // Show class input for students
+            }
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Upload Notes</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html" class="nav-button">Home</a></li>
+        <li><a href="upload.html" class="nav-button">Upload Video</a></li>
+        <li><a href="notes.html" class="nav-button">Upload Notes</a></li>
+        <li><a href="doubts.html" class="nav-button">Ask Your Doubts</a></li>
+        <li><a href="profile.html" class="nav-button">Profile</a></li>
+        <li><a href="available-doubts.html" class="nav-button">available doubts</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>Upload Your Notes</h2>
+    <form>
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" placeholder="Enter the topic" required>
+
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="role">Are you a Teacher?</label>
+        <div>
+            <input type="radio" id="roleTeacher" name="role" value="teacher" onclick="toggleClassInput()">
+            <label for="roleTeacher">Yes</label>
+            <input type="radio" id="roleStudent" name="role" value="student" onclick="toggleClassInput()" checked>
+            <label for="roleStudent">No</label>
+        </div>
+
+        <div id="classInput" style="display: block;">
+            <label for="class">Class:</label>
+            <input type="text" id="class" placeholder="Enter your class">
+        </div>
+        <div class="description-box">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" cols="50" placeholder="Enter your description here..."></textarea>
+        </div>
+<!-- PDF Upload Button Section -->
+<div class="pdf-upload-container">
+    <label for="pdf-upload" class="upload-icon">
+      <img src="C:\Users\ts225\Desktop\peer help . g\up.png" alt="Upload PDF" class="pdf-icon" /> <!-- Replace with your PDF icon source -->
+      <span>Upload PDF</span>
+    </label>
+    <input type="file" id="pdf-upload" accept=".pdf" class="pdf-upload-input">
+  </div>
+          
+        <button type="submit">Upload</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 SRM IST ACADEMIC HELPCENTER. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
