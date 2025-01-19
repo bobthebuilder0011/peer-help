@@ -36,7 +36,7 @@
 
 <section>
     <h2>Upload Your Notes</h2>
-    <form>
+    <form action="upload_notes_endpoint.php" method="post" enctype="multipart/form-data"> <!-- Add form action -->
         <label for="topic">Topic:</label>
         <input type="text" id="topic" placeholder="Enter the topic" required>
 
@@ -59,14 +59,14 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="5" cols="50" placeholder="Enter your description here..."></textarea>
         </div>
-<!-- PDF Upload Button Section -->
-<div class="pdf-upload-container">
-    <label for="pdf-upload" class="upload-icon">
-      <img src="C:\Users\ts225\Desktop\peer help . g\up.png" alt="Upload PDF" class="pdf-icon" /> <!-- Replace with your PDF icon source -->
-      <span>Upload PDF</span>
-    </label>
-    <input type="file" id="pdf-upload" accept=".pdf" class="pdf-upload-input">
-  </div>
+        <!-- PDF Upload Button Section -->
+        <div class="pdf-upload-container">
+            <label for="pdf-upload" class="upload-icon">
+              <img src="up.png" alt="Upload PDF" class="pdf-icon" /> <!-- Change to relative path -->
+              <span>Upload PDF</span>
+            </label>
+            <input type="file" id="pdf-upload" accept=".pdf" class="pdf-upload-input">
+        </div>
           
         <button type="submit">Upload</button>
     </form>

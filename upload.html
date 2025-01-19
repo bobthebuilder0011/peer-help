@@ -36,7 +36,7 @@
 
 <section>
     <h2>Upload Your video</h2>
-    <form>
+    <form action="upload_endpoint.php" method="post" enctype="multipart/form-data"> <!-- Add form action -->
         <label for="topic">Topic:</label>
         <input type="text" id="topic" placeholder="Enter the topic" required>
 
@@ -59,14 +59,14 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="5" cols="50" placeholder="Enter your description here..."></textarea>
         </div>
-<!-- Video Upload Button Section -->
-<div class="video-upload-container">
-    <label for="video-upload" class="upload-icon">
-      <img src="C:\Users\ts225\Desktop\peer help . g\upv.png" alt="Upload Video" class="video-icon" /> <!-- Replace with your video icon source -->
-      <span>Upload Video</span>
-    </label>
-    <input type="file" id="video-upload" accept="video/*" class="video-upload-input">
-  </div>
+        <!-- Video Upload Button Section -->
+        <div class="video-upload-container">
+            <label for="video-upload" class="upload-icon">
+              <img src="upv.png" alt="Upload Video" class="video-icon" /> <!-- Change to relative path -->
+              <span>Upload Video</span>
+            </label>
+            <input type="file" id="video-upload" accept="video/*" class="video-upload-input">
+        </div>
           
         <button type="submit">Upload</button>
     </form>
@@ -78,4 +78,3 @@
 
 </body>
 </html>
-
